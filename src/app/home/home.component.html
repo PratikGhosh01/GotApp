@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row">
+
+
+    <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <label for="exampleFormControlSelect1">Select Category</label>
+      <select class="form-control" [(ngModel)]="view">
+        <option value="" [selected]="">All</option>
+        <option value="characters">Characters</option>
+        <option value="houses">Houses</option>
+        <option value="books">Books</option>
+      </select>
+    </div>
+
+  </div>
+
+
+
+  <div class="row" style="text-align:center" *ngIf="allInfo.length>0">
+    <div *ngFor="let info of allInfo | category:view | sort" class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+
+
+      <div class="card border-danger mb-3" *ngIf="info.numberOfPages">
+        <div class="card-body text-danger">
+          <h5 class="card-title">{{info.name}}</h5>
+          <p class="card-text">No of pages : {{info.numberOfPages}}</p>
+          <p class="card-text">Date of release : {{info.released | date:'longDate'}}</p>
+          <a [routerLink]="['/book',info.url.split('/').pop()]" class="btn btn-outline-danger">Know More</a>
+
+        </div>
+      </div>
+
+      <div class="card border-success mb-3" *ngIf="info.region || info.coatOfArms">
+        <div class="card-body text-success">
+          <h5 class="card-title">{{info.name}}</h5>
+
+          <p class="card-text">Region:{{info.region}} </p>
+          <a [routerLink]="['/house',info.url.split('/').pop()]" class="btn btn-outline-success">Know More</a>
+
+        </div>
+      </div>
+
+
+      <div class="card border-primary mb-3" *ngIf="info.gender">
+        <div class="card-body text-primary">
+          <h5 class="card-title">{{info.aliases}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{info.gender}}</h6>
+          <p class="card-text">{{info.name}}.</p>
+          <a [routerLink]="['/character',info.url.split('/').pop()]" class="btn btn-outline-primary">Know More</a>
+
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+  

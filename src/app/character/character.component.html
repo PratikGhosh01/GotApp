@@ -1,0 +1,101 @@
+<div class="container-fluid">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <button class="btn btn-outline-dark" (click)="goback()">Go back</button>
+  </div>
+  <div class="row " *ngIf="character">
+
+
+    <ul class="list-group list-group-flush col-xs-8 col-sm-8 col-md-12 col-lg-12">
+
+      <li class="list-group-item" *ngIf="character.name">
+        <h5>Name: </h5>
+        <h6>{{character.name}}</h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.gender">
+        <h5>Gender: </h5>
+        <h6>{{character.gender}}</h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.culture">
+        <h5>Culture: </h5>
+        <h6>{{character.culture}}</h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.born">
+        <h5>Born: </h5>
+        <h6>{{character.born}}</h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.died">
+        <h5>Died: </h5>
+        <h6> {{character.died}}</h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.titles[0]">
+        <h5>Titles: </h5>
+        <h6 *ngFor="let title of character.titles">{{title}}</h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.aliases[0]">
+        <h5>Aliases: </h5>
+        <h6 *ngFor="let alias of character.aliases">{{alias}}</h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.spouse">
+        <h5>Spouse: </h5>
+        <h6>
+          <a [routerLink]="['/character',character.spouse.split('/').pop()]">{{character.spouse}}</a>
+        </h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.father">
+        <h5>Father: </h5>
+        <h6>
+          <a [routerLink]="['/character',character.father.split('/').pop()]">{{character.father}}</a>
+        </h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.mother">
+        <h5>Mother: </h5>
+        <h6>
+          <a [routerLink]="['/character',character.mother.split('/').pop()]">{{character.mother}}</a>
+        </h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.allegiances.length>0">
+        <h5>Allegiances: </h5>
+        <h6 *ngFor="let allegiance of character.allegiances">
+          <a [routerLink]="['/house',allegiance.split('/').pop()]">{{allegiance}}</a>
+        </h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.books.length>0">
+        <h5>Books: </h5>
+        <h6 *ngFor="let book of character.books">
+          <a [routerLink]="['/book',book.split('/').pop()]">{{book}}</a>
+        </h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.povBooks.length>0">
+        <h5>Pov Books: </h5>
+        <h6 *ngFor="let book of character.povBooks">
+          <a [routerLink]="['/book',book.split('/').pop()]">{{book}}</a>
+        </h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.tvSeries[0]">
+        <h5>Tv Series: </h5>
+        <h6 *ngFor="let tv of character.tvSeries">{{tv}}</h6>
+      </li>
+
+      <li class="list-group-item" *ngIf="character.playedBy[0]">
+        <h5>Played By: </h5>
+        <h6 *ngFor="let played of character.playedBy">{{played}}</h6>
+      </li>
+
+    </ul>
+
+  </div>
+</div>

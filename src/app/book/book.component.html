@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <button class="btn btn-outline-dark" (click)="goback()">Go back</button>
+    </div>
+    <div class="row " *ngIf="book">
+
+
+        <ul class="list-group list-group-flush col-xs-8 col-sm-8 col-md-12 col-lg-12">
+            <li class="list-group-item">
+                <h5>Name: </h5>
+                <h6>{{book.name}}</h6>
+            </li>
+            <li class="list-group-item">
+                <h5>ISBN: </h5>
+                <h6>{{book.isbn}}</h6>
+            </li>
+            <li class="list-group-item" *ngIf="book.numberOfPages">
+                <h5>Number OF Pages: </h5>
+                <h6>{{book.numberOfPages}}</h6>
+            </li>
+            <li class="list-group-item" *ngIf="book.publisher">
+                <h5>Publisher: </h5>
+                <h6>{{book.publisher}}</h6>
+            </li>
+            <li class="list-group-item" *ngIf="book.country">
+                <h5>Country: </h5>
+                <h6> {{book.country}}</h6>
+            </li>
+            <li class="list-group-item" *ngIf="book.mediaType">
+                <h5>Media Type: </h5>
+                <h6>{{book.mediaType}}</h6>
+            </li>
+            <li class="list-group-item" *ngIf="book.released">
+                <h5>Released: </h5>
+                <h6>{{book.released | date:'longDate'}}</h6>
+            </li>
+            <li class="list-group-item" *ngIf="book.authors[0]">
+                <h5>Authors: </h5>
+                <h6 *ngFor="let author of book.authors">{{author}}</h6>
+            </li>
+
+
+
+            <li class="list-group-item" *ngIf="book.characters[0]">
+                <h5>Characters: </h5>
+                <h6 *ngFor="let character of book.characters">
+                    <a [routerLink]="['/character',character.split('/').pop()]">{{character}}</a>
+                </h6>
+            </li>
+
+
+            <li class="list-group-item" *ngIf="book.povCharacters[0]">
+                <h5>PovCharacters: </h5>
+                <h6 *ngFor="let character of book.povCharacters">
+                    <a [routerLink]="['/character',character.split('/').pop()]">{{character}}</a>
+                </h6>
+            </li>
+
+        </ul>
+
+    </div>
+</div>

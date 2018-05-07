@@ -1,0 +1,33 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'category'
+})
+export class CategoryPipe implements PipeTransform {
+
+
+  transform(value: any, args: any): any {
+    if (!args)
+      return value;
+    else if (args == "characters") {
+      return value.filter(it => {
+        if (it.gender)
+          return it;
+      });
+    }
+    else if (args == "houses") {
+      return value.filter(it => {
+        if (it.region || it.coatOfArms)
+          return it;
+      });
+    }
+    else {
+      return value.filter(it => {
+        if (it.numberOfPages)
+          return it;
+      });
+    }
+  }
+
+
+}

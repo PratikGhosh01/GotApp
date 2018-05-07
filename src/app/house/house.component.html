@@ -1,0 +1,97 @@
+<div class="container-fluid">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <button class="btn btn-outline-dark" (click)="goback()">Go back</button>
+    </div>
+    <div class="row " *ngIf="house">
+
+
+        <ul class="list-group list-group-flush col-xs-8 col-sm-8 col-md-12 col-lg-12">
+
+            <li class="list-group-item">
+                <h5>Name: </h5>
+                <h6>{{house.name}}</h6>
+            </li>
+
+            <li class="list-group-item">
+                <h5>Region: </h5>
+                <h6>{{house.region}}</h6>
+            </li>
+
+
+            <li class="list-group-item" *ngIf="house.coatOfArms">
+                <h5>Coat Of Arms: </h5>
+                <h6>{{house.coatOfArms}}</h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.titles[0]">
+                <h5>Words: </h5>
+                <h6 *ngFor="let title of house.titles">{{title}}</h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.seats[0]">
+                <h5>Seats: </h5>
+                <h6 *ngFor="let seat of house.seats">{{seat}}</h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.currentLord">
+                <h5>Current Lord: </h5>
+                <h6>
+                    <a [routerLink]="['/character',house.currentLord.split('/').pop()]">{{house.currentLord}}</a>
+                </h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.swornMembers[0]">
+                <h5>Sworn Members: </h5>
+                <h6 *ngFor="let swornMember of house.swornMembers">
+                    <a [routerLink]="['/character',swornMember.split('/').pop()]">{{swornMember}}</a>
+                </h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.heir">
+                <h5>Heir: </h5>
+                <h6>
+                    <a [routerLink]="['/character',house.heir.split('/').pop()]">{{house.heir}}</a>
+                </h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.overlord">
+                <h5>Overlord: </h5>
+                <h6>
+                    <a [routerLink]="['/house',house.overlord.split('/').pop()]">{{house.overlord}}</a>
+                </h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.founded">
+                <h5>Founded: </h5>
+                <h6>{{house.founded}}</h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.founder">
+                <h5>Founder: </h5>
+                <h6>
+                    <a [routerLink]="['/character',house.founder.split('/').pop()]">{{house.founder}}</a>
+                </h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.diedOut">
+                <h5>Died Out: </h5>
+                <h6>{{house.diedOut}}</h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.ancestralWeapons[0]">
+                <h5>Ancestral Weapons: </h5>
+                <h6 *ngFor="let ancestralWeapon of house.ancestralWeapons">{{ancestralWeapon}}</h6>
+            </li>
+
+            <li class="list-group-item" *ngIf="house.cadetBranches[0]">
+                <h5>Cadet Branches: </h5>
+                <h6 *ngFor="let cadetBranch of house.cadetBranches">
+                    <a [routerLink]="['/house',cadetBranch.split('/').pop()]">{{cadetBranch}}</a>
+                </h6>
+            </li>
+
+        </ul>
+
+    </div>
+</div>

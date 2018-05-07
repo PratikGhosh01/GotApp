@@ -1,0 +1,30 @@
+.container-fluid{
+    font-size: 1rem;
+
+}
+
+a{
+    font-size: 0.7rem !important;
+    margin-left: 0rem !important;
+    margin-right: 0rem !important;
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+}
+
+
+
+.row {
+  display: flex;
+}
+
+
+@media only screen and (min-width: 400px) {
+    a {
+        font-size:1rem !important;
+    }
+}
+
+button{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    }
