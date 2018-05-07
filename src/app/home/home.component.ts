@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   public allBooks
   public allCharacters
   public allHouses
+  public view:any
 
   constructor(private gotHttp: GotHttpService) {
     console.log("home construct called")
